@@ -1,7 +1,7 @@
 clear all
 close all
 
-k = 'lattice';
+k = 'circle';
 showplot = 1;
 
 N = 9;
