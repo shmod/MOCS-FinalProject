@@ -28,9 +28,7 @@ end
 
 for i = 1:N
     while (network(1,i) ~= k)
-        if (network(1,i) == k)
-            33;
-        end
+
         %Pick a random person
         r = ceil(rand*N);
         %If the picked person already has k neighbours or
@@ -47,9 +45,7 @@ for i = 1:N
         if temp > N*10
             break
         end
-        if (network(1,r) == k)
-            33;
-        end
+
         network(network(1,r)+3,r) = i;   %Link the perons to eachother
         network(network(1,i)+3,i) = r;
         network(1,r) = network(1,r)+1;   %Increase the degree of the persons
