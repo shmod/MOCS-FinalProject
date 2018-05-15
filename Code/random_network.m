@@ -10,7 +10,7 @@ network(3,2) = 1;
 for i = 3:N     %Connects everyone to an already connected random person
    r = ceil(rand*(i-1));
    network(3,i) = r;    %Link the persons to eachoter
-   network(network(1,r)+2,r) = i;
+   network(network(1,r)+3,r) = i;
    network(1,i) = 1;    %Increase the persons degree
    network(1,r) = network(1,r)+1;
 end
