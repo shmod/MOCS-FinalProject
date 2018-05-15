@@ -1,5 +1,6 @@
+%Random network
+
 function network = random_network(k,N)
-% Olle 
 network = [];
 network=zeros(k+2,N);
 %Links the first two persons to eachother

@@ -1,19 +1,20 @@
 clear all
 close all
 N = 100;        %Population size
-reps = 100000;    %Number of simulations
+reps =100000;    %Number of simulations
 c = 1;          %c is aarbitrary number. Easiest if set to one
 w = 0.01;       %Weak selection
-k = 2;          %Degree of the network
-brange = 1.8:0.05:2.2;
+k = 4;          %Degree of the network
+bvals = 1:0.5:5; % actual values of b used
+brange = 1:1:length(bvals); % number of points to be examined
 fixvector = zeros(1,length(brange));
-p = 1;
 
-for b = brange    %Runs for different b
+parfor b = brange    %Runs for different b
+    b_current = bvals(b); % actual value of b used in simulations (b/c = b since c = 1)
     fix = 0;           %Integer to save number of times all people becomes cooperators
     counter = 0;
-    parfor j = 1:reps;
-        network = cycle_network(k,N); % 1 = Cooperator, 0 = Defector
+    for j = 1:reps
+        network = lattice_4_network(N); % 1 = Cooperator, 0 = Defector
         
         while sum(network(2,:))>0 && sum(network(2,:))<N  %Runs until its fixated
             fitness = zeros(1,2);  % fitness of neighbouring nodes, 1 = defectors, 2 = contributors
@@ -24,7 +25,7 @@ for b = brange    %Runs for different b
                 temp = network(i,r); % index of neighbour
                 payoff = 0;
                 for l = 3:network(1,temp)+2 % loop over neighbours neighbours
-                    payoff = payoff + b*network(2,network(l,temp));
+                    payoff = payoff + b_current*network(2,network(l,temp));
                 end
                 payoff = payoff -network(1,temp)*network(2,temp)*c;
                 fitness(network(2,temp)+1) = fitness(network(2,temp)+1) + 1-w + w*payoff; 
@@ -43,7 +44,10 @@ for b = brange    %Runs for different b
     end
     counter = counter /reps;
     counter
-    fixvector(p) = fix/reps;
-    p = p+1;
+    fixvector(b) = fix/reps;
 end
-plot(brange/c,fixvector,'bx');  %Plots the fixation probability against b/c
+
+%% plots
+plot(bvals/(c),fixvector,'bx');  %Plots the fixation probability against b/c
+xlabel('b')
+ylabel('fixation probability')
