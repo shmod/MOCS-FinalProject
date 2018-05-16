@@ -1,5 +1,6 @@
-k = 4;
-N = 100;
+%random regular network for last project
+function network = random_regular_network(k,N)
+
 network = zeros(2+k,N);
 
 % We start of by initializing a connect random network
@@ -7,7 +8,7 @@ network = zeros(2+k,N);
 network(1,1:2) = 1;
 network(3,1) = 2;
 network(3,2) = 1;
-
+temp =0;
 for i = 3:N     %Connects everyone to an already connected random person
     if (network(1,i) < k)
         r = ceil(rand*(i-1));
@@ -16,15 +17,12 @@ for i = 3:N     %Connects everyone to an already connected random person
             r = ceil(rand*N);
         end
         
-        
         network(network(1,i)+3,i) = r;    %Link the persons to eachoter
         network(network(1,r)+3,r) = i;
         network(1,i) = network(1,i) +1;    %Increase the persons degree
         network(1,r) = network(1,r)+1;
     end
 end
-
-
 
 for i = 1:N
     while (network(1,i) ~= k)
@@ -55,4 +53,4 @@ end
 %Add a cooperator
 cooperator_pick=ceil(rand()*N);
 network(2,cooperator_pick)=1;
-size(network)
+end
