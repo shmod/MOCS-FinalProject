@@ -1,6 +1,6 @@
 %Random network
 
-function network = random_regular_network(k,N)
+function network = random_regular_network2(k,N)
 network = [];
 network=zeros(k+2,N);
 %Links the first two persons to eachother

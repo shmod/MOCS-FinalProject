@@ -9,7 +9,7 @@ change_network = 100;   %How many runs before a new network is generated
 bvals = 1:0.5:5; % actual values of b used
 brange = 1:1:length(bvals); % number of points to be examined
 fixvector = zeros(1,length(brange));
-
+o
 for b = brange    %Runs for different b
     b_current = bvals(b); % actual value of b used in simulations (b/c = b since c = 1)
     fix = 0;           %Integer to save number of times all people becomes cooperators
