@@ -8,10 +8,8 @@
 color = [0.4660 0.6740 0.1880];   % green  k = 10
 
 hold on
-plot(bvals/(c),fixvector,'.','markersize',12,'color',color);%Plots the fixation probability against b/c
-plot(k,0.01,'x','markersize',8,'color',color,'LineWidth',1.5)%Plot position of 0.01 vs k
-plot(0:0.1:20,0.01*ones(length(0:0.1:20)),'-.k','markersize',4); %Line at 0.01
-xlabel('b/c')
-ylabel('fixation probability')
-set(gca,'fontsize',11)
+plot(bvals/(c),fixvector,'.','markersize',35,'color',color);%Plots the fixation probability against b/c
+plot(k,0.01,'x','markersize',25,'color',color,'LineWidth',1.5)%Plot position of 0.01 vs k
+plot(0:0.1:20,0.01*ones(length(0:0.1:20)),'-. k','markersize',1); %Line at 0.01
+set(gca,'fontsize',20)
 axis([0 20 0.002 0.015])
