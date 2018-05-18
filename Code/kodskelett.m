@@ -6,7 +6,7 @@ c = 1;          %c is aarbitrary number. Easiest if set to one
 w = 0.01;       %Weak selection
 k = 4;          %Degree of the network
 change_network = 100;   %How many runs before a new network is generated
-bvals = 5:0.25:7; % actual values of b used
+bvals = 3:0.2:5; % actual values of b used
 brange = 1:1:length(bvals); % number of points to be examined
 fixvector = zeros(1,length(brange));
 %Bvals 1.8:0.05:2.2 for k=2
@@ -21,7 +21,7 @@ parfor b = brange    %Runs for different b
     fix = 0;           %Integer to save number of times all people becomes cooperators
     counter = 0;
     for j = 1:change_network
-        samenetwork = random_network(k,N);  % 1 = Cooperator, 0 = Defector
+        samenetwork = cycle_network(k,N);  % 1 = Cooperator, 0 = Defector
         for jj = 1:reps/change_network
             network = samenetwork;
             
