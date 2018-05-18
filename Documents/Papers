@@ -4,6 +4,7 @@ Shad:
 Evolutionary games on graphs
 Gy¨orgy Szab´o a G´abor F´ath b
 
+<<<<<<< HEAD
 Olle: 
 Coevolutionary games—A mini review
 
@@ -12,4 +13,10 @@ Evolutionary dynamics of group interactions on structured populations: a review
 Five Rules for the Evolution of Cooperation
 
 Network structure and the biology of populations
+=======
+Hugo:
+Coevolution of Strategy and Structure in Complex Networks with Dynamical Linking
+Jorge M. Pacheco, Arne Traulsen, and Martin A. Nowak
+- intressant men beskrivning på exakt implementation saknas
+>>>>>>> 7d6a5d520158664249be5aa3b504c8ef3072f7db
 
