@@ -1,11 +1,11 @@
 clear all
 close all
 N = 100;        %Population size
-reps =10;    %Number of simulations
+reps =100000;    %Number of simulations
 c = 1;          %c is aarbitrary number. Easiest if set to one
 w = 0.01;       %Weak selection
 k = 10;          %Degree of the network
-change_network = 1;   %How many runs before a new network is generated
+change_network = 100;   %How many runs before a new network is generated
 bvals = 1:0.5:18; % actual values of b used
 brange = 1:1:length(bvals); % number of points to be examined
 coopParameter = 1:0.1:4; % cooperation boost for coop-coop interactions
@@ -74,9 +74,9 @@ for alpha = coopParameter
             end
         end
         counter = counter /reps;
-        counter
         fixvector(alphaindex,b) = fix/reps;
     end
+    alphaindex
     alphaindex = alphaindex +1;
 end
 
