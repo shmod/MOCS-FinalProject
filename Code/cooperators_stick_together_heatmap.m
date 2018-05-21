@@ -90,3 +90,5 @@ xticks([1:2:35])
 yticks([1:3:31])
 xticklabels(1:1:18);
 yticklabels(1:0.3:4);
+hold on
+contour(fixvector,[0.01 0.01],'red','lineWidth',1.5)
