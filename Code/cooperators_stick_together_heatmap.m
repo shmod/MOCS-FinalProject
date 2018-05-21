@@ -84,4 +84,9 @@ end
 imagesc(fixvector);  %Plots the fixation probability against b/c
 xlabel('b/c')
 ylabel('coop parameter')
-set(gca,'YTickLabel',1:0.8:4)
+% set(gca,'YTickLabel',1:0.8:4)
+% set(gca,'XTickLabel',1:3:18)
+xticks([1:2:35])
+yticks([1:3:31])
+xticklabels(1:1:18);
+yticklabels(1:0.3:4);
